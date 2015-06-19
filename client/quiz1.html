@@ -1,0 +1,65 @@
+<template name="quiz1">
+
+<div>
+	<h1>Quiz1</h1>
+</div>
+
+<br>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-5">
+			{{> addInfoForm}}
+		</div>
+
+		<div class="col-xs-5">
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>Project Name</th><th>First Name</th><th>Last Name</th>
+						<th>Deployed Meteor</th><th>Github Repository</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each user}}
+					  {{> userinfo}}
+					{{/each}}	
+				</tbody>
+			</table>
+		</div>
+
+		
+	</div>
+</div>
+
+</template>
+
+<template name="userinfo">
+	<tr>
+		<td>{{proName}}</td> 
+		<td>{{firName}} </td>
+		<td>{{lasName}} </td>
+		<td><a href="{{depMeteor}}">{{depMeteor}}</a></td>
+		<td><a href="{{gitRepos}}">{{gitRepos}}</a></td>
+		<button class="remove">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+		</button>
+	</tr>
+</template>
+
+<template name="addInfoForm">
+
+	<form class="form-inline" id="addInfo">
+		<input class="addInfo" type="text" name="proname" placeholder="ProjectName">
+		<hr/>
+	    <input class="addInfo" type="text" name="firname" placeholder="FirstName">
+	    <hr/>
+	    <input class="addInfo" type="text" name="lasname" placeholder="LastName">
+	    <hr/>
+	    <input class="addInfo" type="text" name="depmeteor" placeholder="DepMeteor">
+	    <hr/>
+	    <input class="addInfo" type="text" name="gitrepos" placeholder="GitRepos">
+	    <hr/>
+  		<input type="submit" class="addInfo btn btn-info" value="Add Info">
+	</form>
+</template>
