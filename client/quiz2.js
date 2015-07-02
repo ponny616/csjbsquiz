@@ -24,6 +24,7 @@ Template.quiz2.rendered = function(){
 		drawing = true;
 		context = draw.getContext("2d");
 		context.moveTo(e.pageX - draw.offsetLeft,e.pageY - draw.offsetTop);
+
 	})
 
 	draw.addEventListener('mouseup', function(e){ 
@@ -36,9 +37,15 @@ Template.quiz2.rendered = function(){
 		    ynow = e.pageY - draw.offsetTop;
 		    context = draw.getContext("2d");
 		    context.lineTo(xnow,ynow);
+		    context.strokeStyle = Color;
 		    context.stroke();
 		    $("#pos").html("position = ("+xnow+","+ynow+")");
 	  	} 
-	}); 
+	})
+
+	Color = $('#selectColor option:selected').val();
+	$('#selectColor').change(function () {
+    	Color = $('#selectColor option:selected').val();
+    })
 }
 
